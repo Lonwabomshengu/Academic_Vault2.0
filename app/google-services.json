@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "77152986845",
+    "project_id": "academicvaul",
+    "storage_bucket": "academicvaul.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77152986845:android:08bc0bd3e1ee65c42c9d34",
+        "android_client_info": {
+          "package_name": "com.example.academic_vault"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhtXKtsckoPi3jUiTuwFCGgc26WrY8wBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
