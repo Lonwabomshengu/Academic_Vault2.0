@@ -17,8 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
     //variables
-
-    TextInputLayout firstName, surname, studentNo, courseName, password;
+    TextInputLayout firstName, surname, studentNo, courseName, email, password;
     Button signup, login;
 
     FirebaseDatabase rootNode;
@@ -34,9 +33,9 @@ public class SignupActivity extends AppCompatActivity {
         surname = findViewById(R.id.surnameInputLayout);
         studentNo = findViewById(R.id.studentNoInputLayout);
         courseName = findViewById(R.id.CourseNameInputLayout);
+        email = findViewById(R.id.emailInputLayout);
         password = findViewById(R.id.password_input_layout);
         signup = findViewById(R.id.sign_go_button);
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -52,23 +51,38 @@ public class SignupActivity extends AppCompatActivity {
                 reference = rootNode.getReference("users");
 
                 // Get all the values
-                String fName = firstName.getEditText() != null ? firstName.getEditText().getText().toString() : "";
-                String sName = surname.getEditText() != null ? surname.getEditText().getText().toString() : "";
-                String sNo = studentNo.getEditText() != null ? studentNo.getEditText().getText().toString() : "";
-                String cName = courseName.getEditText() != null ? courseName.getEditText().getText().toString() : "";
-                String pass = password.getEditText() != null ? password.getEditText().getText().toString() : "";
+                String fName = firstName.getEditText() != null ? firstName.getEditText().getText().toString().trim() : "";
+                String sName = surname.getEditText() != null ? surname.getEditText().getText().toString().trim() : "";
+                String sNo = studentNo.getEditText() != null ? studentNo.getEditText().getText().toString().trim() : "";
+                String cName = courseName.getEditText() != null ? courseName.getEditText().getText().toString().trim() : "";
+                String mail = email.getEditText() != null ? email.getEditText().getText().toString().trim() : "";
+                String pass = password.getEditText() != null ? password.getEditText().getText().toString().trim() : "";
 
-                if (fName.isEmpty() || sName.isEmpty() || sNo.isEmpty() || cName.isEmpty() || pass.isEmpty()) {
+                // Validation
+                if (fName.isEmpty() || sName.isEmpty() || sNo.isEmpty() || cName.isEmpty() || mail.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(SignupActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                UserHelperClass helperClass = new UserHelperClass(fName, sName, sNo, cName, pass);
+                // Determine role based on email domain
+                String role = "student";
+                if (mail.toLowerCase().endsWith("@admin.com")) {
+                    role = "admin";
+                }
+
+                UserHelperClass helperClass = new UserHelperClass(fName, sName, sNo, cName, mail, pass, role);
 
                 reference.child(sNo).setValue(helperClass).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignupActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignupActivity.this, DashboardActivity.class);
+                        Toast.makeText(SignupActivity.this, "Registration Successful as " + role, Toast.LENGTH_SHORT).show();
+                        
+                        Intent intent;
+                        if (role.equals("admin")) {
+                            intent = new Intent(SignupActivity.this, AdminDashboard.class);
+                        } else {
+                            intent = new Intent(SignupActivity.this, DashboardActivity.class);
+                        }
+
                         startActivity(intent);
                         finish();
                     } else {

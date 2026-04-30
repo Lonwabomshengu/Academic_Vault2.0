@@ -18,6 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/accent"
             app:title="Admin Dashboard"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Body2"
             app:titleTextColor="@color/background" />
 
     </com.google.android.material.appbar.AppBarLayout>
