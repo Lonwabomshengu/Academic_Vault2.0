@@ -17,10 +17,28 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
+            android:name=".LevelOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResourceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadResourceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PapersListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadPaperActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminDashboard"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CourseLevelsActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"

@@ -28,8 +28,10 @@ public class AdminDashboard extends AppCompatActivity {
             startActivity(intent);
         });
 
-        cardManageCourses.setOnClickListener(v -> 
-            Toast.makeText(this, "Courses management coming soon", Toast.LENGTH_SHORT).show());
+        cardManageCourses.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminDashboard.this, UploadResourceActivity.class);
+            startActivity(intent);
+        });
 
         cardReports.setOnClickListener(v -> 
             Toast.makeText(this, "Reports coming soon", Toast.LENGTH_SHORT).show());

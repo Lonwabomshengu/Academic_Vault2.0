@@ -65,10 +65,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 // Determine role based on email domain
-                String role = "student";
-                if (mail.toLowerCase().endsWith("@admin.com")) {
-                    role = "admin";
-                }
+                final String role = mail.toLowerCase().endsWith("@admin.com") ? "admin" : "student";
 
                 UserHelperClass helperClass = new UserHelperClass(fName, sName, sNo, cName, mail, pass, role);
 
