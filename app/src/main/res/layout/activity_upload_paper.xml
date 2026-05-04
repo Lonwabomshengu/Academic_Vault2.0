@@ -14,10 +14,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary"
+            android:background="#A6911B"
+            app:navigationIcon="@android:drawable/ic_menu_revert"
             app:title="Upload Exam Paper"
-            app:titleTextColor="@android:color/white"
-            app:navigationIcon="@android:drawable/ic_menu_revert"/>
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -113,9 +113,9 @@
                 android:id="@+id/btn_upload"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:backgroundTint="#A6911B"
                 android:text="UPLOAD PAPER"
-                android:backgroundTint="@color/primary"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 

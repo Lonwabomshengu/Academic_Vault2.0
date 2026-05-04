@@ -14,9 +14,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary"
-            app:titleTextColor="@android:color/white"
-            app:navigationIcon="@android:drawable/ic_menu_revert"/>
+            android:background="#A6911B"
+            app:navigationIcon="@android:drawable/ic_menu_revert"
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

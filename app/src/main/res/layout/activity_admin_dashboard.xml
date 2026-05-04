@@ -16,9 +16,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/accent"
+            android:background="#A6911B"
+            android:touchscreenBlocksFocus="true"
+            android:transitionGroup="false"
             app:title="Admin Dashboard"
-            app:titleTextAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
             app:titleTextColor="@color/background" />
 
     </com.google.android.material.appbar.AppBarLayout>

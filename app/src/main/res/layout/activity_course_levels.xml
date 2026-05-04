@@ -14,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#EF910F"
+            android:background="#A6911B"
             app:navigationIcon="@android:drawable/ic_menu_revert">
 
             <TextView
